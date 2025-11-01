@@ -1,8 +1,7 @@
-// data/questions.js
 
 // Banco de 16 preguntas para la certificación de JavaScript
 const questions = [
-  // Nivel Básico
+  
   {
     id: 1,
     pregunta: "¿Cuál es la forma correcta de declarar una variable que no puede ser reasignada?",

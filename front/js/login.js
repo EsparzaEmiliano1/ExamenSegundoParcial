@@ -1,4 +1,3 @@
-// js/login.js
 
 // Esperar a que todo el contenido del DOM esté cargado
 document.addEventListener('DOMContentLoaded', () => {
