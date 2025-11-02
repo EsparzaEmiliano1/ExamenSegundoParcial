@@ -1,0 +1,91 @@
+/* frontend/css/certificaciones.css */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.cert-card {
+  background-color: var(--light-gray);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.cert-card p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.cert-card ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.cert-card li {
+  padding-left: 1.2rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.cert-card li::before {
+  content: '✓'; /* Un checkmark */
+  position: absolute;
+  left: 0;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.cert-buttons {
+  margin-top: auto; /* Empuja los botones al fondo */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cert-buttons button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cert-buttons .btn-pay {
+  background-color: var(--secondary-color);
+  color: white;
+}
+.cert-buttons .btn-pay:hover {
+  background-color: #087f81;
+}
+
+.cert-buttons .btn-start {
+  background-color: var(--primary-color);
+  color: white;
+}
+.cert-buttons .btn-start:hover {
+  background-color: #004c5a;
+}
+
+/* Estilos para botones deshabilitados */
+.cert-buttons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.cert-availability {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #555;
+  text-align: center;
+  font-style: italic;
+}

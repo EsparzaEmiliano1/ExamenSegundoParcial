@@ -48,15 +48,24 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'index.html';
 
       } else {
+        debugger
         // Error (ej. 401 Credenciales incorrectas)
         console.error('Error en login:', data.message);
         errorMessageDiv.textContent = data.message;
       }
 
     } catch (error) {
-      // Error de red (ej. el servidor backend no está corriendo)
-      console.error('Error de conexión:', error);
-      errorMessageDiv.textContent = 'No se pudo conectar con el servidor. ¿Está encendido?';
+        // Error de red (ej. el servidor backend no está corriendo)
+        console.error('Error de conexión:', error);
+        errorMessageDiv.textContent = 'No se pudo conectar con el servidor. ¿Está encendido?';
+        // ... en el catch(error)
+        console.error('Error de conexión:', error);
+        Swal.fire({
+        title: 'Error de Conexión',
+        text: 'No se pudo conectar con el servidor. ¿Está encendido?',
+        icon: 'error',
+        confirmButtonText: 'Entendido'
+        });
     }
   });
 });

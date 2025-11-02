@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certificaciones - Plataforma</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/certificaciones.css"> <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo"><a href="index.html">TuLogo</a></div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="certificaciones.html">Certificaciones</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+      </nav>
+      <div class="header-user">
+        <a href="login.html" id="user-login-link">Iniciar Sesión</a>
+        <span id="user-display-name" class="hidden"></span> 
+        <a href="#" id="user-logout-link" class="hidden">Cerrar Sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <h1>Nuestras Certificaciones</h1>
+    
+    <div class="cert-grid">
+
+      <article class="cert-card">
+        <h3>Certified Web Systems Developer (JS)</h3>
+        <p>Aprende JS, Node.js y más.</p> <ul>
+          <li>Punt. Mínima: 75</li> <li>Tiempo: 30 Minutos</li> <li>Costo: $50 USD</li> </ul>
+        <div class="cert-buttons">
+          <button class="btn-pay" data-cert-id="js-dev">Pagar Examen</button> <button class="btn-start" data-cert-id="js-dev">Iniciar Examen</button> </div>
+      </article>
+
+      <article class="cert-card">
+        <h3>Certified Python Developer</h3>
+        <p>Domina Python para Data Science.</p>
+        <ul>
+          <li>Punt. Mínima: 80</li>
+          <li>Tiempo: 45 Minutos</li>
+          <li>Costo: $70 USD</li>
+        </ul>
+        <div class="cert-buttons">
+          <button class="btn-pay" disabled>Pagar Examen</button> <button class="btn-start" disabled>Iniciar Examen</button> </div>
+        <p class="cert-availability">Disponible: 1ro Diciembre 2025</p> </article>
+
+      <article class="cert-card">
+        <h3>Certified Java Specialist</h3>
+        <p>Conviértete en experto en backend con Java.</p>
+        <ul>
+          <li>Punt. Mínima: 70</li>
+          <li>Tiempo: 60 Minutos</li>
+          <li>Costo: $60 USD</li>
+        </ul>
+        <div class="cert-buttons">
+          <button class="btn-pay" disabled>Pagar Examen</button>
+          <button class="btn-start" disabled>Iniciar Examen</button>
+        </div>
+        <p class="cert-availability">Disponible: 15 Enero 2026</p> </article>
+      
+      <article class="cert-card">
+        <h3>Certified React Frontend</h3>
+        <p>Crea interfaces de usuario modernas.</p>
+        <ul>
+          <li>Punt. Mínima: 80</li>
+          <li>Tiempo: 40 Minutos</li>
+          <li>Costo: $65 USD</li>
+        </ul>
+        <div class="cert-buttons">
+          <button class="btn-pay" disabled>Pagar Examen</button>
+          <button class="btn-start" disabled>Iniciar Examen</button>
+        </div>
+        <p class="cert-availability">Disponible: 1ro Febrero 2026</p> </article>
+
+    </div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <p>&copy; 2025 Tu Empresa de Certificaciones. Todos los derechos reservados.</p>
+      <div class="social-media"><a href="#">Facebook</a></div>
+    </div>
+  </footer>
+
+  <script src="js/global.js"></script>
+  <script src="js/certificaciones.js"></script>
+
+</body>
+</html>

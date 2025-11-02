@@ -6,6 +6,9 @@ const cors = require('cors');
 // Importar nuestras rutas
 const authRoutes = require('./routes/auth.routes.js');
 const examRoutes = require('./routes/exam.routes.js');
+const pdfRoutes = require('./routes/pdf.routes.js');
+const userRoutes = require('./routes/user.routes.js'); 
+const contactRoutes = require('./routes/contact.routes.js');
 
 // Inicializar la aplicación de Express
 const app = express();
@@ -22,6 +25,9 @@ app.use(express.json());
 // Todas las rutas en 'authRoutes' comenzarán con '/api/auth'
 app.use('/api/auth', authRoutes);
 app.use('/api/exams', examRoutes);
+app.use('/api/certs', pdfRoutes);
+app.use('/api/users', userRoutes); 
+app.use('/api/contact', contactRoutes);
 
 // --- Iniciar el servidor ---
 app.listen(PORT, () => {
