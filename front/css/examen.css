@@ -1,0 +1,104 @@
+/* frontend/css/examen.css */
+
+.exam-header {
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+.exam-header h1 {
+  color: var(--primary-color);
+}
+.exam-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-style: italic;
+  color: #555;
+}
+
+#examForm {
+  background-color: #fff;
+}
+
+/* Estilo para cada bloque de pregunta */
+.question-block {
+  background-color: var(--light-gray);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  border-left: 5px solid var(--secondary-color);
+}
+
+.question-block h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Estilo para las opciones (radio buttons) */
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option-label {
+  display: block;
+  background-color: #fff;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+.option-label:hover {
+  background-color: #f0f8ff;
+}
+
+.option-label input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+/* Botón de envío */
+#submitExamButton {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+#submitExamButton:hover {
+  background-color: #004c5a;
+}
+
+/* Contenedor de resultados */
+#result-container {
+  margin-top: 2rem;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+}
+#result-container.success {
+  background-color: #e6ffed;
+  border: 1px solid #b7ebc2;
+}
+#result-container.fail {
+  background-color: #fff0f0;
+  border: 1px solid #ffc9c9;
+}
+#result-container h2 {
+  margin-bottom: 1rem;
+}
+#downloadPdfButton {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+}

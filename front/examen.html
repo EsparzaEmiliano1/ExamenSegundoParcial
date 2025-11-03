@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examen - Plataforma de Certificación</title>
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/examen.css"> <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="header-container">
+      <div class="logo"><a href="index.html">TuLogo</a></div>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="certificaciones.html">Certificaciones</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+        </ul>
+      </nav>
+      <div class="header-user">
+        <a href="login.html" id="user-login-link">Iniciar Sesión</a>
+        <span id="user-display-name" class="hidden"></span> 
+        <a href="#" id="user-logout-link" class="hidden">Cerrar Sesión</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    
+    <header class="exam-header">
+      <h1>Examen: Certified Web Systems Developer</h1>
+      <div class="exam-info">
+        <span id="exam-user">Usuario: Cargando...</span>
+        <span id="exam-date">Fecha: 1ro de Enero, 2025</span>
+      </div>
+    </header>
+
+    <form id="examForm">
+      
+      <div id="questions-container">
+        <p>Cargando preguntas, por favor espera...</p>
+      </div>
+
+      <button type"submit" id="submitExamButton">Enviar Examen</button>
+
+    </form>
+    
+    <div id="result-container" class="hidden">
+      </div>
+
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-container">
+      <p>&copy; 2025 Tu Empresa de Certificaciones. Todos los derechos reservados.</p>
+      <div class="social-media"><a href="#">Facebook</a></div>
+    </div>
+  </footer>
+
+  <script src="js/global.js"></script>
+  <script src="js/examen.js"></script> </body>
+</html>
