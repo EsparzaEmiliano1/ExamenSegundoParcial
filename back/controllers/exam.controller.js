@@ -3,7 +3,7 @@
 const users = require('../data/users.js');
 const questions = require('../data/questions.js');
 
-// --- Función Auxiliar: Aleatorizar un Arreglo (Algoritmo Fisher-Yates) ---
+// ---  Aleatorizar un Arreglo  ---
 // La usaremos para aleatorizar tanto las preguntas como las opciones
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -20,13 +20,13 @@ const startExam = (req, res) => {
   const userAccount = req.userId;
   const user = users.find(u => u.cuenta === userAccount);
 
+    // ----------Atencion aqui ----------------- 
   // 2. Validar condiciones para iniciar el examen
   if (!user.haPagado) {
-    return res.status(403).json({ message: "Acceso denegado. Debes pagar el examen primero." }); // Cita [16]
+    return res.status(403).json({ message: "Acceso denegado. Debes pagar el examen primero." }); 
   }
-
   if (user.intentoRealizado) {
-    return res.status(403).json({ message: "El examen solo se puede aplicar una vez." }); // Cita [100]
+    return res.status(403).json({ message: "El examen solo se puede aplicar una vez." }); 
   }
 
   // 3. Preparar el examen
@@ -34,34 +34,37 @@ const startExam = (req, res) => {
   let examQuestions = [...questions];
 
   // b. Aleatorizamos el banco de preguntas
-  examQuestions = shuffleArray(examQuestions);              // Revisar
+  examQuestions = shuffleArray(examQuestions);                                            // Aqui esta
 
   // c. Tomamos las primeras 8 preguntas
-  examQuestions = examQuestions.slice(0, 8); // Cita [17, 101]
+  examQuestions = examQuestions.slice(0, 8); 
 
-  // d. Preparamos las preguntas para el front:
-  //    - Aleatorizamos las opciones de cada pregunta
-  //    - Quitamos la respuesta correcta (indiceCorrecto)
-  const preparedQuestions = examQuestions.map(q => {
-    // Creamos un nuevo objeto para las opciones con su texto e índice original
-    let options = q.opciones.map((opcion, index) => ({
-      texto: opcion,
-      originalIndex: index
-    }));
+    // d. Preparamos las preguntas para el front:
+    
+    let preparedQuestions = [];
 
-    // Aleatorizamos las opciones
-    options = shuffleArray(options); // Cita [18, 107]
+    for(let i=0; i<examQuestions.length; i++){
+    let q = examQuestions[i];               // Pregunta actual
 
-    return {
-      id: q.id,
-      pregunta: q.pregunta,
-      // Solo enviamos el texto de las opciones ya aleatorizadas
-      opciones: options.map(opt => opt.texto) 
-    };
-  });
+    // Crear copia de las opciones
+    let options = [];
+    for(let j=0; j<q.opciones.length; j++){
+        options.push(q.opciones[j]);
+    }
+
+    // Mezclar las opciones
+    options = shuffleArray(options);
+
+    // Agregar la pregunta al nuevo arreglo
+    preparedQuestions.push({
+        id: q.id,
+        pregunta: q.pregunta,
+        opciones: options
+    });
+    }
 
   // 4. Respondemos al frontend con las 8 preguntas listas
-  res.status(200).json(preparedQuestions);
+  res.status(200).json(preparedQuestions);                            // Aqui se envian las preguntas al front
 };
 
 
@@ -100,13 +103,11 @@ const submitExam = (req, res) => {
   // 4. Calcular resultado
   const score = (correctAnswers / 8) * 100;
   
-  // Asumimos que se necesita un 70 para aprobar (la rúbrica no lo dice)
-  // El requisito [59] dice que la puntuación mínima se define en el front,
-  // así que la definiremos aquí. Usemos 75.
+  // Asumimos que se necesita un 75 para aprobar 
   const minScore = 75; 
   const passed = score >= minScore;
 
-  // 5. Actualizar al usuario en "memoria"
+  // 5. Actualizar al usuario en memoria
   user.intentoRealizado = true;
   user.calificacion = score; // Guardamos su calificación
   user.aprobo = passed; // Guardamos si aprobó

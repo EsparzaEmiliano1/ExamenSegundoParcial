@@ -9,7 +9,7 @@ const simulatePayment = (req, res) => {
     return res.status(404).json({ message: "Usuario no encontrado." });
   }
 
-  // 2. Revisar si ya pagó (evitar pagos dobles) [cite: 63]
+  // 2. Revisar si ya pagó (evitar pagos dobles) 
   if (user.haPagado) {
     return res.status(400).json({ message: "Este examen ya ha sido pagado." });
   }

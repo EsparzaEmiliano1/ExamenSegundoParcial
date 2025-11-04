@@ -4,7 +4,8 @@ const usuarios = [
     password: "336604",
     nombreCompleto: "Emiliano Esparza Ramirez",
     haPagado: true,
-    intentoRealizado: false 
+    intentoRealizado: false,
+    aprobo: true 
   },
   {
     cuenta: "victoria",
@@ -25,14 +26,16 @@ const usuarios = [
     password: "3108",
     nombreCompleto: "Alondra Marin",
     haPagado: false,
-    intentoRealizado: false 
+    intentoRealizado: false,
+    aprobo: true 
+ 
   },
   {
     cuenta: "cesar",
     password: "gazoo",
     nombreCompleto: "Cesar Esparza Lopez",
     haPagado: true,
-    intentoRealizado: true // (para probar el bloqueo)
+    intentoRealizado: true // para probar el bloqueo
   },
   {
     cuenta: "victor",

@@ -17,11 +17,11 @@ const login = (req, res) => {
 
   // 4. Validar si el usuario existe y la contraseña es correcta
   if (!user || user.password !== password) {
-    return res.status(401).json({ message: "Error en las credenciales." }); // Cita [86]
+    return res.status(401).json({ message: "Error en las credenciales." }); 
   }
 
   // 5. Si el usuario es válido, creamos el token
-  const token = crypto.randomUUID(); // Cita [32]
+  const token = crypto.randomUUID(); 
 
   // 6. Guardamos la sesión en nuestro arreglo en memoria
   activeSessions.push({
@@ -40,7 +40,7 @@ const login = (req, res) => {
 
   // 8. Respondemos al frontend con el token y el usuario
   return res.status(200).json({ 
-    message: "Acceso permitido.", // Cita [86]
+    message: "Acceso permitido.", 
     token: token,
     user: userResponse
   });

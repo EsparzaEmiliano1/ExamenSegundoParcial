@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Login exitoso:', data);
         
         // Guardar el token y los datos del usuario en localStorage
-        localStorage.setItem('token', data.token); // Cita [36]
+        localStorage.setItem('token', data.token); 
         localStorage.setItem('user', JSON.stringify(data.user)); // Guardamos al usuario también
 
         // Redirigir al usuario a la página principal

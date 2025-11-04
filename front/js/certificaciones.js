@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!token) {
         Swal.fire({
           title: 'Error',
-          text: 'Debes iniciar sesión para poder pagar el examen.', // Cita [65, 66]
+          text: 'Debes iniciar sesión para poder pagar el examen.', 
           icon: 'error',
           confirmButtonText: 'Aceptar'
         });
@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('user', JSON.stringify(data.user));
 
         } else {
-          [cite_start]// Error (ej. ya había pagado [cite: 63] o token inválido)
+          // Error (ej ya había pagado o token inválido)
           Swal.fire({
             title: 'Error en el Pago',
-            text: data.message, // Cita [64]
+            text: data.message, 
             icon: 'warning',
             confirmButtonText: 'Aceptar'
           });
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!token || !userJson) {
         Swal.fire({
           title: 'Acceso Denegado',
-          text: 'Debes iniciar sesión para comenzar el examen.', // Cita [65, 66]
+          text: 'Debes iniciar sesión para comenzar el examen.', 
           icon: 'warning'
         });
         return;
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // No ha pagado
           Swal.fire({
             title: 'Acceso Denegado',
-            text: 'Debes pagar el examen antes de poder iniciarlo.', // Cita [65, 66]
+            text: 'Debes pagar el examen antes de poder iniciarlo.', 
             icon: 'warning'
           });
         }

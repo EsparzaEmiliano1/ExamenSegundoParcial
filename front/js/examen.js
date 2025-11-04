@@ -1,6 +1,6 @@
 
-// Variable global para guardar las preguntas que recibimos
-let currentExamQuestions = [];
+// para guardar las preguntas que recibimos
+var currentExamQuestions = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Cargar el examen en cuanto la página esté lista
@@ -35,7 +35,7 @@ async function loadExam() {
       return;
     }
     debugger;
-    //[cite_start]// Rellenar info del header del examen [cite: 111]
+    // Rellenar info del header del examen 
     document.getElementById('exam-user').textContent = `Usuario: ${user.nombreCompleto}`;
     document.getElementById('exam-date').textContent = `Fecha: ${new Date().toLocaleDateString()}`;
 
@@ -59,7 +59,7 @@ async function loadExam() {
     const data = await response.json();
     debugger;
     if (!response.ok) {
-      //[cite_start]// Error (ej. ya hizo el examen [cite: 100] [cite_start]o no pagó [cite: 16])
+      // Error (ej. ya hizo el exameno no pago )
       Swal.fire({
         title: 'Error al Cargar',
         text: data.message,
@@ -202,7 +202,7 @@ function showFinalResult(result) {
   let pdfButtonHtml = '';
 
   if (result.aprobo) {
-    //[cite_start]// ¡Aprobado! [cite: 19]
+    debugger
     resultContainer.classList.add('success');
     resultContainer.innerHTML = `
       <h2>¡Felicidades, has APROBADO!</h2>
@@ -214,7 +214,7 @@ function showFinalResult(result) {
     document.getElementById('downloadPdfButton').addEventListener('click', downloadCertificate);
     
   } else {
-    //[cite_start]// Reprobado [cite: 19]
+    debugger
     resultContainer.classList.add('fail');
     resultContainer.innerHTML = `
       <h2>Lo sentimos, NO has aprobado.</h2>
