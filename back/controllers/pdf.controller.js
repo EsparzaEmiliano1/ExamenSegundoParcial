@@ -1,5 +1,3 @@
-// backend/controllers/pdf.controller.js
-
 const PDFDocument = require('pdfkit');
 const users = require('../data/users.js');
 const path = require('path'); // <-- 1. Importa el módulo 'path'
@@ -69,14 +67,14 @@ const downloadCertificate = (req, res) => {
     y: 220
   });
 
-  // Nombre del usuario (Cita [121])
+  // Nombre del usuario 
   doc.fontSize(28).font('Helvetica-Bold').fillColor('#003366').text(user.nombreCompleto, {
     align: 'center',
     y: 260
   });
   doc.fillColor('#000'); 
 
-  // Nombre de la certificación (Cita [122])
+  // Nombre de la certificación 
   doc.fontSize(20).font('Helvetica').text('Por haber completado exitosamente la certificación:', {
     align: 'center',
     y: 330
@@ -86,7 +84,7 @@ const downloadCertificate = (req, res) => {
     y: 360
   });
 
-  // Fecha (Cita [123]) y Ciudad (Cita [124])
+  // Fecha 
   const today = new Date().toLocaleDateString('es-MX', { dateStyle: 'long' });
   doc.fontSize(16).font('Helvetica').text(`Aguascalientes, Ags. a ${today}`, {
     align: 'center',
@@ -100,8 +98,7 @@ const downloadCertificate = (req, res) => {
   doc.text('_______________________', 100, signatureY + 35, { align: 'left' });
   doc.text('Instructor Principal', 100, signatureY + 55, { align: 'left' });
   
-  // --- TU FIRMA (IMAGEN) ---
-  // (Asegúrate de que 'firma.png' esté en 'backend/assets/')
+  // Firma 
   try {
     doc.image(signaturePath, {
       fit: [250, 60], // Ajusta el tamaño

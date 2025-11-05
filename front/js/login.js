@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cuenta = document.getElementById('cuenta').value;
     const password = document.getElementById('password').value;
 
-    try {
+    try {                                                                               // try catch.
       // 4. Enviar la petición POST al backend usando fetch
       // Asegúrate de que la URL coincide con la de tu servidor backend
       const response = await fetch('http://localhost:3000/api/auth/login', {
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ¡Éxito!
         console.log('Login exitoso:', data);
         
-        // Guardar el token y los datos del usuario en localStorage
+                                             // Guardar el token y los datos del usuario en localStorage
         localStorage.setItem('token', data.token); 
         localStorage.setItem('user', JSON.stringify(data.user)); // Guardamos al usuario también
 

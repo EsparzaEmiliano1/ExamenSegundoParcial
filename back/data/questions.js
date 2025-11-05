@@ -1,4 +1,3 @@
-
 // Banco de 16 preguntas para la certificación de JavaScript
 const questions = [
   

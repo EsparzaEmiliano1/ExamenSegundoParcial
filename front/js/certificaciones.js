@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch('http://localhost:3000/api/users/pay', {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${token}` // ¡Enviamos el token!
+            'Authorization': `Bearer ${token}` // envia el token  
           }
         });
 

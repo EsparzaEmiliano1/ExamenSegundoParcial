@@ -5,7 +5,6 @@ const authRequired = require('../middleware/authRequired.js');
 
 // Ruta para simular el pago
 // Es POST porque estamos "creando" un pago (modificando un estado)
-// ¡Debe estar protegida! Solo un usuario logueado puede pagar.
-router.post('/pay', authRequired, userController.simulatePayment);
+router.post('/pay', authRequired, userController.simulatePayment); // protegida por authRequired.
 
 module.exports = router;

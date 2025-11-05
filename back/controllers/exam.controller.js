@@ -1,4 +1,3 @@
-// backend/controllers/exam.controller.js
 
 const users = require('../data/users.js');
 const questions = require('../data/questions.js');
@@ -40,7 +39,7 @@ const startExam = (req, res) => {
   examQuestions = examQuestions.slice(0, 8); 
 
     // d. Preparamos las preguntas para el front:
-    
+
     let preparedQuestions = [];
 
     for(let i=0; i<examQuestions.length; i++){
@@ -78,7 +77,7 @@ const submitExam = (req, res) => {
   // Esperamos un formato: [ { preguntaId: 1, respuestaTexto: "const" }, ... ]
   const userAnswers = req.body.answers;
 
-  if (!userAnswers || userAnswers.length !== 8) {
+  if (!userAnswers || userAnswers.length !== 8) { // verifica la llegada correcta de las 8 respuestas
     return res.status(400).json({ message: "Se deben enviar 8 respuestas." });
   }
 
@@ -86,8 +85,15 @@ const submitExam = (req, res) => {
   let correctAnswers = 0;
   
   userAnswers.forEach(answer => {
+
     // a. Encontrar la pregunta original en nuestro banco de datos
-    const originalQuestion = questions.find(q => q.id === answer.preguntaId);
+    let originalQuestion = null;
+    for(let i=0; i<questions.length; i++){
+    if(questions[i].id === answer.preguntaId){
+        originalQuestion = questions[i];
+        break;
+    }
+    }
 
     if (originalQuestion) {
       // b. Obtener el texto de la respuesta correcta

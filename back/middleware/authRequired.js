@@ -6,7 +6,7 @@ const activeSessions = require('../data/activeSessions');
  */
 const authRequired = (req, res, next) => {
   // 1. Obtener el header de autorización
-  const authHeader = req.headers['authorization']; 
+  const authHeader = req.headers['authorization'];    // Aqui se lee el token
 
   // 2. Verificar si el header existe
   if (!authHeader) {
@@ -22,7 +22,7 @@ const authRequired = (req, res, next) => {
   const token = tokenParts[1];
 
   // 4. Buscar el token en nuestras sesiones activas en memoria
-  const session = activeSessions.find(s => s.token === token);
+  const session = activeSessions.find(s => s.token === token);       // Aqui se valida el token
 
   // 5. Si no encontramos la sesión, el token no es válido
   if (!session) {

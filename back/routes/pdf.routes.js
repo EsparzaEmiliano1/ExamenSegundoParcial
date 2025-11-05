@@ -1,4 +1,3 @@
-// backend/routes/pdf.routes.js
 
 const express = require('express');
 const router = express.Router();
@@ -7,7 +6,6 @@ const authRequired = require('../middleware/authRequired.js'); // El guardia
 
 // Ruta para descargar el certificado
 // Es GET porque solo estamos pidiendo (descargando) datos
-// Y está protegida, ¡solo usuarios logueados pueden descargar!
-router.get('/download', authRequired, pdfController.downloadCertificate);
+router.get('/download', authRequired, pdfController.downloadCertificate); // protegida por authRequired.
 
 module.exports = router;

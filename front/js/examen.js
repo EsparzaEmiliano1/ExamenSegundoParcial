@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * Función para CARGAR las preguntas del examen
  */
 async function loadExam() {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');          // aqui se recupera el token tmb
   const userJson = localStorage.getItem('user');
   
   // --- Validaciones iniciales ---
